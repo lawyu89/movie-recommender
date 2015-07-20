@@ -1,0 +1,15 @@
+<div class="container">
+  <form class="questionaire" action='/view'method='get'>
+    <% @questions.each do |question|%>
+      <div class="question-container hidden">
+        <h2><%= question.title %></h2>
+        <ul>
+          <% question.answers.each do |answer| %>
+            <li><input type="radio" name="<%= question.id %>" value="<%= answer.content %>"><%= answer.content %></li>
+          <% end %>
+        </ul>
+        <button class="next-item">Next</button>
+      </div>
+    <% end %>
+  </form>
+</div>

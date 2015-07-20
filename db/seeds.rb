@@ -13,12 +13,13 @@ end
 
 #Generate Genres
 action = Genre.create(name: "Action & Adventure")
-comdey = Genre.create(name: "Comedy")
+comedy = Genre.create(name: "Comedy")
 scifi = Genre.create(name: "Science Fiction")
 horror = Genre.create(name: "Horror")
 mystery = Genre.create(name: "Mystery")
 romance = Genre.create(name: "Romance")
 family = Genre.create(name: "Family")
+
 drama = Genre.create(name: "Drama")
 thriller = Genre.create(name: "Thriller")
 
@@ -36,7 +37,18 @@ end
 q1 = Question.create(title: "Pick an Animal!")
 q1_a1 = Answer.create(content: "Lion", question_id: q1.id, genre_id: action.id)
 q1_a2 = Answer.create(content: "Dove", question_id: q1.id, genre_id: romance.id)
-q1_a3 = Answer.create(content: "Dolphin", question_id: q1.id, genre_id: comdey.id)
-q1_a4 = Answer.create(content: "ET", question_id: q1.id, genre_id: scifi.id)
+q1_a3 = Answer.create(content: "Dolphin", question_id: q1.id, genre_id: comedy.id)
+q1_a4 = Answer.create(content: "T-rex", question_id: q1.id, genre_id: scifi.id)
+q1_a5 = Answer.create(content: "Jellyfish", question_id: q1.id, genre_id: mystery.id)
+q1_a6 = Answer.create(content: "Dog", question_id: q1.id, genre_id: family.id)
+q1_a7 = Answer.create(content: "Zombie Cat", question_id: q1.id, genre_id: horror.id)
 
-q2 =
+q2 = Question.create(title: "Which location do you want to go to next?")
+q2_a1 = Answer.create(content: "Mars", question_id: q2.id, genre_id: scifi.id)
+q2_a2 = Answer.create(content: "Disney World", question_id: q2.id, genre_id: family.id)
+q2_a3 =  Answer.create(content: "Stonehenge", question_id: q2.id, genre_id: mystery.id)
+q2_a4 = Answer.create(content: "Paris", question_id: q2.id, genre_id: romance.id)
+q2_a5 = Answer.create(content: "Transylvania", question_id: q2.id, genre_id: horror.id)
+q2_a6 = Answer.create(content: "Hawaii", question_id: q2.id, genre_id: comedy.id)
+q2_a7 = Answer.create(content: "Mount Everest", question_id: q2.id, genre_id: action.id)
+
