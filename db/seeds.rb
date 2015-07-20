@@ -19,7 +19,7 @@ location = ['SFO', 'JFK', 'LAX', 'BOS', 'LAS', 'PIT', 'TPL', 'SDF']
 end
 
 
-#Generate Genres
+#Generate 7 type of genres that are currently available
 action = Genre.create(name: "Action & Adventure")
 comedy = Genre.create(name: "Comedy")
 scifi = Genre.create(name: "Science Fiction")
@@ -31,10 +31,10 @@ family = Genre.create(name: "Family")
 drama = Genre.create(name: "Drama")
 thriller = Genre.create(name: "Thriller")
 
-#Generate 15 Movies for now since the airline is cheap
+#Generate 20 Movies for now since the airline is cheap
 #assume movie lengths between 1-2 hours, calculated in seconds
-15.times do
-  movie = Movie.create(name: Faker::Name.name, description: Faker::Lorem.sentence, movie_length: 3600+Random.rand(3600), thumbnail_url: Faker::Avatar.image, rating: rand(10)+rand(11)/10.to_f)
+20.times do
+  movie = Movie.create(name: Faker::Name.name, description: Faker::Lorem.sentence, movie_length: 3600+Random.rand(3600), thumbnail_url: Faker::Avatar.image, rating: rand(10)+rand(11)/10.to_f, released_year: [*1980..2015].sample)
   num_genres = [*2..4].sample #give each movie 2-4 genres
   Genre.all.sample(num_genres).each do |genre|
     movie.genres << genre
@@ -42,7 +42,7 @@ thriller = Genre.create(name: "Thriller")
 end
 
 #Generate 5 Personality Questions with Answers Objects
-q1 = Question.create(title: "Pick an Animal!")
+q1 = Question.create(title: "Select an Animal!")
 q1_a1 = Answer.create(content: "Lion", question_id: q1.id, genre_id: action.id)
 q1_a2 = Answer.create(content: "Dove", question_id: q1.id, genre_id: romance.id)
 q1_a3 = Answer.create(content: "Dolphin", question_id: q1.id, genre_id: comedy.id)
@@ -60,3 +60,41 @@ q2_a5 = Answer.create(content: "Transylvania", question_id: q2.id, genre_id: hor
 q2_a6 = Answer.create(content: "Hawaii", question_id: q2.id, genre_id: comedy.id)
 q2_a7 = Answer.create(content: "Mount Everest", question_id: q2.id, genre_id: action.id)
 
+q3 = Question.create(title: "Pick a food item!")
+q3_a1 = Answer.create(content: "Steamed Frogs", question_id: q3.id, genre_id: scifi.id)
+q3_a2 = Answer.create(content: "Hot Dog", question_id: q3.id, genre_id: family.id)
+q3_a3 =  Answer.create(content: "Brownies", question_id: q3.id, genre_id: mystery.id)
+q3_a4 = Answer.create(content: "Chocolate", question_id: q3.id, genre_id: romance.id)
+q3_a5 = Answer.create(content: "Corn Candy", question_id: q3.id, genre_id: horror.id)
+q3_a6 = Answer.create(content: "Lollipop", question_id: q3.id, genre_id: comedy.id)
+q3_a7 = Answer.create(content: "Pop rocks", question_id: q3.id, genre_id: action.id)
+
+q4 = Question.create(title: "Choose a Color!")
+q4_a1 = Answer.create(content: "Green", question_id: q4.id, genre_id: scifi.id)
+q4_a2 = Answer.create(content: "White", question_id: q4.id, genre_id: family.id)
+q4_a3 =  Answer.create(content: "Grey", question_id: q4.id, genre_id: mystery.id)
+q4_a4 = Answer.create(content: "Pink", question_id: q4.id, genre_id: romance.id)
+q4_a5 = Answer.create(content: "Black", question_id: q4.id, genre_id: horror.id)
+q4_a6 = Answer.create(content: "Yellow", question_id: q4.id, genre_id: comedy.id)
+q4_a7 = Answer.create(content: "Orange", question_id: q4.id, genre_id: action.id)
+
+q5 = Question.create(title: "If you were a superhero, who would you be?")
+q5_a1 = Answer.create(content: "Martian Manhunter", question_id: q5.id, genre_id: scifi.id)
+q5_a2 = Answer.create(content: "Captain America", question_id: q5.id, genre_id: family.id)
+q5_a3 =  Answer.create(content: "Batman", question_id: q5.id, genre_id: mystery.id)
+q5_a4 = Answer.create(content: "Superman", question_id: q5.id, genre_id: romance.id)
+q5_a5 = Answer.create(content: "Blade", question_id: q5.id, genre_id: horror.id)
+q5_a6 = Answer.create(content: "Spider Man", question_id: q5.id, genre_id: comedy.id)
+q5_a7 = Answer.create(content: "Thor", question_id: q5.id, genre_id: action.id)
+
+q6 = Question.create(title: "What would you order at a resturant?")
+q6_a1 = Answer.create(content: "Livers and Onions", question_id: q6.id, genre_id: scifi.id)
+q6_a2 = Answer.create(content: "Roasted Turkey", question_id: q6.id, genre_id: family.id)
+q6_a3 = Answer.create(content: "Grey", question_id: q6.id, genre_id: mystery.id)
+q6_a4 = Answer.create(content: "Spagetti and Meatballs", question_id: q6.id, genre_id: romance.id)
+q6_a5 = Answer.create(content: "Deviled Eggs", question_id: q6.id, genre_id: horror.id)
+q6_a6 = Answer.create(content: "Pie", question_id: q6.id, genre_id: comedy.id)
+q6_a7 = Answer.create(content: "Steak", question_id: q6.id, genre_id: action.id)
+
+
+item to buy and resturant

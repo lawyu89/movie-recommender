@@ -18,24 +18,26 @@ class MoviesController < ApplicationController
         matched_movies << Answer.where(content: v).first.genre.movies
       end
     end
-    best_match = Hash.new(0)
-    #calculate best movie match by comparing each unique movie based on matching genres, number of times genre was picked, and the movie's rating
+    scored_match = Hash.new(0)
+    #calculate best movie match by comparing each unique movie based on matching genres, number of times genre was picked, year released relative to current year, and the movie's rating
     matched_movies.flatten.uniq.each do |movie|
       score = 0
       movie.genres.each do |genre|
         score += genre_counter[genre]*10
       end
       score += (movie.rating*10).to_i
-      best_match[movie] = score
+      score -= DateTime.now.year - movie.released_year
+      scored_match[movie] = score
     end
-    best_match = best_match.sort_by {|k,v| v}.reverse
+    #created sorted array of movie objects based on their personalized score
+    scored_match = scored_match.sort_by {|k,v| v}.reverse
+    #loop through scored_match array and add them to results based on their flight time
     i = 0
     results = []
-    while i < best_match.length - 1
-      p best_match[i][0]
-      if flight_time - best_match[i][0].movie_length > 0
-        results << best_match[i][0]
-        flight_time -= best_match[i][0].movie_length
+    while i < scored_match.length - 1
+      if flight_time - scored_match[i][0].movie_length > 0
+        results << {movie: scored_match[i][0], genre: scored_match[i][0].genres}
+        flight_time -= scored_match[i][0].movie_length
       end
       i+=1
     end
