@@ -1,5 +1,13 @@
 <div class="container">
   <form class="questionaire" action='/view'method='get'>
+    <div class="question-container hidden">
+      <select name="flight">
+        <% @flights.each do |flight| %>
+          <option value="<%= flight.path_name %>"><%= flight.path_name %></option>
+        <% end %>
+      </select>
+      <button class="next-item">Start Personality Quiz</button>
+    </div>
     <% @questions.each do |question|%>
       <div class="question-container hidden">
         <h2><%= question.title %></h2>

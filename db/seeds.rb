@@ -11,6 +11,14 @@ ActiveRecord::Base.connection.tables.each do |table|
   ActiveRecord::Base.connection.execute("TRUNCATE #{table}")
 end
 
+#Generate Flight Data (assume travel time is currently 1 to 7 hours)
+location = ['SFO', 'JFK', 'LAX', 'BOS', 'LAS', 'PIT', 'TPL', 'SDF']
+10.times do
+  path_name = location.sample(2)
+  Flight.create(path_name: path_name.join(' - '), travel_time: 3600+Random.rand(15000))
+end
+
+
 #Generate Genres
 action = Genre.create(name: "Action & Adventure")
 comedy = Genre.create(name: "Comedy")
