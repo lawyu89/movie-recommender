@@ -21,7 +21,7 @@ function toggleQuestion(){
       nextQuestion.toggle();
     } else if ($(this).closest('.question-container').find('input:checked').length == 0){
       $('.error').remove();
-      $('ul').append("<p class='error center'>Please Choose One Option</p>");
+      $('ul').append("<p class='error center'>Please Choose An Option</p>");
     } else {
       $('.error').remove();
       $(this).closest('.question-container').toggle();

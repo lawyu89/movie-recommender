@@ -32,7 +32,7 @@ family = Genre.create(name: "Family")
 #assume movie lengths between 1-2 hours, calculated in seconds
 30.times do
   movie = Movie.create(name: Faker::Name.name, description: Faker::Lorem.paragraph(3), movie_length: 3600+Random.rand(3600), thumbnail_url: Faker::Avatar.image, rating: rand(10)+rand(11)/10.to_f, released_year: [*1980..2015].sample)
-  num_genres = [*2..4].sample #give each movie 2-4 genres
+  num_genres = [*1..3].sample #give each movie 1-3 genres
   Genre.all.sample(num_genres).each do |genre|
     movie.genres << genre
   end
