@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150719203701) do
     t.string   "name"
     t.string   "description"
     t.integer  "movie_length"
+    t.integer  "released_year"
     t.float    "rating"
     t.string   "thumbnail_url"
     t.datetime "created_at",    null: false

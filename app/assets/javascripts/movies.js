@@ -25,6 +25,7 @@ $(document).on('ready', function(){
       $('ul').append("<p class='error'>Please Choose One</p>");
     } else {
       $('.error').remove();
+      $(this).closest('.question-container').toggleClass('active');
       var path = $(this).attr('action');
       $.ajax({
         url: path,
@@ -32,7 +33,7 @@ $(document).on('ready', function(){
         data: $(this).serialize(),
         dataType: 'JSON'
       }).done(function(response){
-        debugger
+        response
       })
       //AJAX Stuff
     }
