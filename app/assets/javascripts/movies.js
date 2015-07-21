@@ -7,8 +7,8 @@ $(document).on('ready', function(){
 });
 
 function showFirstQuestion(){
-  $('.question-container').first().toggleClass('active');
-  $('.question-container').last().append('<input type="submit" value="See Results">');
+  $('.question-container').first().toggle();
+  $('.question-container').last().find('.col-sm-6').append('<input class="btn btn-danger center" type="submit" value="See Results">');
   $('.question-container').last().find('button').remove();
 }
 
@@ -16,17 +16,17 @@ function toggleQuestion(){
   $('.container').on('click', '.next-item', function(e){
     e.preventDefault();
     if ($(this).closest('.question-container').find('select').length > 0) {
-      $(this).closest('.question-container').toggleClass('active');
+      $(this).closest('.question-container').toggle();
       var nextQuestion = $(this).closest('.question-container').next();
-      nextQuestion.toggleClass('active');
+      nextQuestion.toggle();
     } else if ($(this).closest('.question-container').find('input:checked').length == 0){
       $('.error').remove();
-      $('ul').append("<p class='error'>Please Choose One</p>");
+      $('ul').append("<p class='error center'>Please Choose One Option</p>");
     } else {
       $('.error').remove();
-      $(this).closest('.question-container').toggleClass('active');
+      $(this).closest('.question-container').toggle();
       var nextQuestion = $(this).closest('.question-container').next();
-      nextQuestion.toggleClass('active');
+      nextQuestion.toggle();
     }
   });
 }
@@ -39,7 +39,7 @@ function submitForm() {
       $('ul').append("<p class='error'>Please Choose One</p>");
     } else {
       $('.error').remove();
-      $(this).find('.question-container').last().toggleClass('active');
+      $(this).find('.question-container').last().toggle();
       var path = $(this).attr('action');
       $.ajax({
         url: path,
@@ -53,7 +53,7 @@ function submitForm() {
         $('.travel-time').text(travel_time_hr+'hr '+ travel_time_min+'min')
         $('.movie-result-container').show();
         for (var i=0; i<response.results.length; i++){
-          var temp = movieItemTemplate(response.results[i]);
+          var temp = movieItemTemplate(response.results[i], i+1);
           $('.movie-result-container').append(temp);
         }
       });
@@ -61,16 +61,17 @@ function submitForm() {
   });
 }
 
-function movieItemTemplate(obj) {
+function movieItemTemplate(obj, index) {
+  debugger
   var template = $('.movie-list-template').clone().children();
-  template.find('.title').text(obj.movie.name+' ('+obj.movie.released_year+')');
+  template.find('.title').text(index + ') ' + obj.movie.name + ' (' + obj.movie.released_year + ')');
   template.find('img').attr('src', obj.movie.thumbnail_url);
   template.find('.description').text(obj.movie.description);
   template.find('.rating').text(obj.movie.rating);
   var time = obj.movie.movie_length;
   var movie_time_hr = Math.floor(time/3600);
   var movie_time_min = Math.floor(time%3600/60);
-  template.find('.movie-length').text(movie_time_hr+'hr '+ movie_time_min+'min');
+  template.find('.movie-length').text(movie_time_hr + 'hr ' + movie_time_min + 'min');
   var genres = ''
   for (var i=0;i<obj.genre.length;i++){
     if (i === obj.genre.length - 1){

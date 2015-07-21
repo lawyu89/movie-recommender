@@ -28,10 +28,10 @@ mystery = Genre.create(name: "Mystery")
 romance = Genre.create(name: "Romance")
 family = Genre.create(name: "Family")
 
-#Generate 20 Movies for now since the airline is cheap
+#Generate 30 Movies for now since the airline is cheap
 #assume movie lengths between 1-2 hours, calculated in seconds
-20.times do
-  movie = Movie.create(name: Faker::Name.name, description: Faker::Lorem.sentence, movie_length: 3600+Random.rand(3600), thumbnail_url: Faker::Avatar.image, rating: rand(10)+rand(11)/10.to_f, released_year: [*1980..2015].sample)
+30.times do
+  movie = Movie.create(name: Faker::Name.name, description: Faker::Lorem.paragraph(3), movie_length: 3600+Random.rand(3600), thumbnail_url: Faker::Avatar.image, rating: rand(10)+rand(11)/10.to_f, released_year: [*1980..2015].sample)
   num_genres = [*2..4].sample #give each movie 2-4 genres
   Genre.all.sample(num_genres).each do |genre|
     movie.genres << genre
@@ -85,7 +85,7 @@ Answer.create(content: "Martian Manhunter", question_id: q5.id, genre_id: scifi.
 Answer.create(content: "Spider Man", question_id: q5.id, genre_id: comedy.id)
 
 q6 = Question.create(title: "What would you order at a resturant?")
-Answer.create(content: "Grey", question_id: q6.id, genre_id: mystery.id)
+Answer.create(content: "The Daily Special", question_id: q6.id, genre_id: mystery.id)
 Answer.create(content: "Deviled Eggs", question_id: q6.id, genre_id: horror.id)
 Answer.create(content: "Pie", question_id: q6.id, genre_id: comedy.id)
 Answer.create(content: "Livers and Onions", question_id: q6.id, genre_id: scifi.id)

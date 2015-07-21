@@ -1,47 +1,58 @@
 <div class="container">
   <form class="questionaire" action='/view'method='get'>
-    <div class="question-container hidden">
-      <select name="flight">
-        <% @flights.each do |flight| %>
-          <option value="<%= flight.path_name %>"><%= flight.path_name %></option>
-        <% end %>
-      </select>
-      <button class="next-item">Start Personality Quiz</button>
+    <div class="question-container row" style="display:none">
+      <div class="col-sm-6  col-sm-offset-3 center">
+        <h1>Movie Personality Picker!</h1>
+        <p>Select Your Flight Path</p>
+        <div class="select">
+          <select name="flight">
+            <% @flights.each do |flight| %>
+              <option value="<%= flight.path_name %>"><%= flight.path_name %></option>
+            <% end %>
+          </select>
+        </div>
+        <div>
+          <button class="next-item btn btn-success">Start Personality Quiz</button>
+        </div>
+      </div>
     </div>
     <% @questions.each do |question|%>
-      <div class="question-container hidden">
-        <h2><%= question.title %></h2>
-        <ul>
-          <% question.answers.each do |answer| %>
-            <li><input type="radio" name="<%= question.id %>" value="<%= answer.content %>"><%= answer.content %></li>
-          <% end %>
-        </ul>
-        <button class="next-item">Next</button>
+      <div class="question-container row" style="display:none">
+        <div class="col-sm-6 col-sm-offset-3 center clear">
+          <h2><%= question.title %></h2>
+          <ul class="text-left">
+            <% question.answers.each do |answer| %>
+              <li><input type="radio" name="<%= question.id %>" value="<%= answer.content %>" class="answer-text"> <%= answer.content %></li>
+            <% end %>
+          </ul>
+          <button class="next-item btn btn-primary">Next</button>
+        </div>
       </div>
     <% end %>
   </form>
-  <div class="movie-result-container" style="display:none">
-    <h2>Based on your results and your travel time of <span class="travel-time"></span>, we recommended the following movies for you to watch during your flight. Enjoy!!!</h2>
-    <p>(You can click on the movie image to see more information about the movie)</p>
-
+  <div class="movie-result-container row" style="display:none">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h2>Based on your results and your travel time of <span class="travel-time"></span>, we recommended the following movies for you to watch during your flight. Enjoy!!!</h2>
+      <p class="col-sm-10 col-sm-offset-1">(You can click on the movie image to see more information about the movie)</p>
+    </div>
   </div>
 </div>
 
 <div class="movie-list-template" style="display:none">
-  <div class="movie-item-container">
+  <div class="movie-item-container col-sm-8 col-sm-offset-2 center">
     <h1 class="title"></h1>
     <div class="front">
       <img src="">
-      <p>Click to see more Information<p>
     </div>
     <div class="more-info back" style="display:none">
-      <p>Movie Description:</p>
-      <p class="description"></p>
-      <p>Movie Rating:</p>
-      <p class="rating"></p>
-      <p>Movie Length:</p>
-      <p class="movie-length"></p>
+      <p class="movie-text">Movie Description:</p>
+      <p class="description movie-sub-text"></p>
+      <p class="movie-text">Movie Rating:</p>
+      <p class="rating movie-sub-text"></p>
+      <p class="movie-text">Movie Length:</p>
+      <p class="movie-length movie-sub-text"></p>
       <p>Genres:</p>
     </div>
   </div>
 </div>
+

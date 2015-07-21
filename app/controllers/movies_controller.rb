@@ -23,9 +23,9 @@ class MoviesController < ApplicationController
     matched_movies.flatten.uniq.each do |movie|
       score = 0
       movie.genres.each do |genre|
-        score += genre_counter[genre]*10
+        score += genre_counter[genre]*5
       end
-      score += (movie.rating*5).to_i
+      score += (movie.rating*8).to_i
       score -= DateTime.now.year - movie.released_year
       scored_match[movie] = score
     end
@@ -35,7 +35,7 @@ class MoviesController < ApplicationController
     i = 0
     results = []
     while i < scored_match.length - 1
-      if flight_time - scored_match[i][0].movie_length > 0
+      if flight_time - scored_match[i][0].movie_length > 0 && scored_match[i][0].rating > 4
         results << {movie: scored_match[i][0], genre: scored_match[i][0].genres}
         flight_time -= scored_match[i][0].movie_length
       end
