@@ -20,17 +20,28 @@
       </div>
     <% end %>
   </form>
+  <div class="movie-result-container" style="display:none">
+    <h2>Based on your results and your travel time of <span class="travel-time"></span>, we recommended the following movies for you to watch during your flight. Enjoy!!!</h2>
+    <p>(You can click on the movie image to see more information about the movie)</p>
+
+  </div>
 </div>
 
 <div class="movie-list-template" style="display:none">
-  <div>
-    <h1></h1>
-    <img src="">
-    <p>Click to see more Information<p>
-  </div>
-  <div>
-    <p>Movie Description</p>
-    <p></p>
-    <p>Genres</p>
+  <div class="movie-item-container">
+    <h1 class="title"></h1>
+    <div class="front">
+      <img src="">
+      <p>Click to see more Information<p>
+    </div>
+    <div class="more-info back" style="display:none">
+      <p>Movie Description:</p>
+      <p class="description"></p>
+      <p>Movie Rating:</p>
+      <p class="rating"></p>
+      <p>Movie Length:</p>
+      <p class="movie-length"></p>
+      <p>Genres:</p>
+    </div>
   </div>
 </div>

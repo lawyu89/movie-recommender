@@ -107,6 +107,6 @@ Answer.create(content: "Silk Cotton Tree", question_id: q8.id, genre_id: mystery
 Answer.create(content: "Willow Tree", question_id: q8.id, genre_id: romance.id)
 Answer.create(content: "Burmis Tree", question_id: q8.id, genre_id: horror.id)
 Answer.create(content: "Baobab Tree", question_id: q8.id, genre_id: action.id)
-Answer.create(content: "Dragon Tree", question_id: q8.id, genre_id: scifi.id)
+Answer.create(content: "Dracaena Tree", question_id: q8.id, genre_id: scifi.id)
 Answer.create(content: "Palm Tree", question_id: q8.id, genre_id: comedy.id)
 Answer.create(content: "Redwood Tree", question_id: q8.id, genre_id: family.id)

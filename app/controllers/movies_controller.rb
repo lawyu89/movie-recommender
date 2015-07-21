@@ -25,7 +25,7 @@ class MoviesController < ApplicationController
       movie.genres.each do |genre|
         score += genre_counter[genre]*10
       end
-      score += (movie.rating*10).to_i
+      score += (movie.rating*5).to_i
       score -= DateTime.now.year - movie.released_year
       scored_match[movie] = score
     end
@@ -41,6 +41,6 @@ class MoviesController < ApplicationController
       end
       i+=1
     end
-    render json: results.to_json
+    render json: {results: results, flight: flight}.to_json
   end
 end
