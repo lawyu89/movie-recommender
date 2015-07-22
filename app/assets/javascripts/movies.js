@@ -1,13 +1,12 @@
 $(document).on('ready', function(){
-  showFirstQuestion();
+  editLastQuestionButton();
   toggleQuestion();
   submitForm();
   showMoreInfoFront();
   showMoreInfoback();
 });
 
-function showFirstQuestion(){
-  $('.question-container').first().toggle();
+function editLastQuestionButton(){
   $('.question-container').last().find('.col-sm-6').append('<input class="btn btn-danger center" type="submit" value="See Results">');
   $('.question-container').last().find('button').remove();
 }
@@ -36,7 +35,7 @@ function submitForm() {
     e.preventDefault();
     if ($(this).find('.question-container').last().find('input:checked').length == 0){
       $('.error').remove();
-      $('ul').append("<p class='error'>Please Choose One</p>");
+      $('ul').append("<p class='error'>Please Choose An Option</p>");
     } else {
       $('.error').remove();
       $(this).find('.question-container').last().toggle();

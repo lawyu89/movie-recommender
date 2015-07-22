@@ -1,0 +1,105 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/lyu/Desktop/movie-recommender/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/lyu/Desktop/movie-recommender/app/helpers/movies_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/lyu/Desktop/movie-recommender/app/models/flight.rb": [
+        1,
+        null
+      ],
+      "/Users/lyu/Desktop/movie-recommender/app/models/genre.rb": [
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/lyu/Desktop/movie-recommender/app/models/movie.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/lyu/Desktop/movie-recommender/app/models/movie_genre.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/lyu/Desktop/movie-recommender/app/models/question.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/lyu/Desktop/movie-recommender/app/models/answer.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/lyu/Desktop/movie-recommender/app/controllers/movies_controller.rb": [
+        1,
+        1,
+        5,
+        5,
+        null,
+        null,
+        1,
+        null,
+        2,
+        2,
+        2,
+        2,
+        2,
+        null,
+        8,
+        2,
+        2,
+        null,
+        null,
+        2,
+        null,
+        2,
+        2,
+        2,
+        2,
+        null,
+        2,
+        2,
+        2,
+        null,
+        null,
+        4,
+        null,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        null,
+        2,
+        null,
+        2,
+        2,
+        null,
+        null
+      ],
+      "/Users/lyu/Desktop/movie-recommender/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ]
+    },
+    "timestamp": 1437533563
+  }
+}
