@@ -32,7 +32,6 @@ class MoviesController < ApplicationController
     scored_match = scored_match.sort_by {|k,v| v}.reverse
     #loop through scored_match array and add them to results based on their flight time
     i = 0
-    p scored_match
     results = []
     while i < scored_match.length
       if flight_time - scored_match[i][0].movie_length > 0 && scored_match[i][0].rating > 4
@@ -41,7 +40,6 @@ class MoviesController < ApplicationController
       end
       i+=1
     end
-    p results
     render json: {results: results, flight: flight}.to_json
   end
 end
