@@ -14,7 +14,7 @@
       <img src="./assets/0.9.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-07-21T19:52:43-07:00">2015-07-21T19:52:43-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-07-21T19:59:40-07:00">2015-07-21T19:59:40-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.8
+         3.77
        </span>
     </span> hits/line)
   </h2>
@@ -67,7 +67,7 @@
         <td>32</td>
         <td>32</td>
         <td>0</td>
-        <td>2.3</td>
+        <td>5.5</td>
       </tr>
       
       <tr>
@@ -163,7 +163,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.22
+         5.24
        </span>
     </span> hits/line)
   </h2>
@@ -205,7 +205,7 @@
         <td>32</td>
         <td>32</td>
         <td>0</td>
-        <td>2.3</td>
+        <td>5.5</td>
       </tr>
       
     </tbody>
@@ -525,14 +525,14 @@
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="3">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="7" data-linenumber="3">
+          <span class="hits">7</span>
           
           <code class="ruby">    @flights = Flight.all</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="4">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="7" data-linenumber="4">
+          <span class="hits">7</span>
           
           <code class="ruby">    @questions = Question.all</code>
         </li>
@@ -561,32 +561,32 @@
           <code class="ruby">    #grab all movies from related genres picked by user</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="9">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="9">
+          <span class="hits">4</span>
           
           <code class="ruby">    flight = Flight.where(path_name: params[:flight]).first</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="10">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="10">
+          <span class="hits">4</span>
           
           <code class="ruby">    flight_time = flight.travel_time</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="11">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="11">
+          <span class="hits">4</span>
           
           <code class="ruby">    matched_movies = []</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="12">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="12">
+          <span class="hits">4</span>
           
           <code class="ruby">    genre_counter = Hash.new(0)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="13">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="13">
+          <span class="hits">4</span>
           
           <code class="ruby">    params.each do |k,v|</code>
         </li>
@@ -597,20 +597,20 @@
           <code class="ruby">      #each radio button set is grouped by their question id. To grab params related to questions, convert key to integer and see if its greater than 0 since strings.to_i is equal to 0</code>
         </li>
       
-        <li class="covered" data-hits="8" data-linenumber="15">
-          <span class="hits">8</span>
+        <li class="covered" data-hits="16" data-linenumber="15">
+          <span class="hits">16</span>
           
           <code class="ruby">      if k.to_i &gt; 0</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="16">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="16">
+          <span class="hits">4</span>
           
           <code class="ruby">        genre_counter[Answer.where(content: v).first.genre] +=1</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="17">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="17">
+          <span class="hits">4</span>
           
           <code class="ruby">        matched_movies &lt;&lt; Answer.where(content: v).first.genre.movies</code>
         </li>
@@ -627,8 +627,8 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="20">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="20">
+          <span class="hits">4</span>
           
           <code class="ruby">    scored_match = Hash.new(0)</code>
         </li>
@@ -639,26 +639,26 @@
           <code class="ruby">    #calculate best movie match by comparing each unique movie based on matching genres, number of times genre was picked, year released relative to current year, and the movie&#39;s rating</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="22">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="22">
+          <span class="hits">4</span>
           
           <code class="ruby">    matched_movies.flatten.uniq.each do |movie|</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="23">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="8" data-linenumber="23">
+          <span class="hits">8</span>
           
           <code class="ruby">      score = 0</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="24">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="8" data-linenumber="24">
+          <span class="hits">8</span>
           
           <code class="ruby">      movie.genres.each do |genre|</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="25">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="8" data-linenumber="25">
+          <span class="hits">8</span>
           
           <code class="ruby">        score += genre_counter[genre]*5</code>
         </li>
@@ -669,20 +669,20 @@
           <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="27">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="8" data-linenumber="27">
+          <span class="hits">8</span>
           
           <code class="ruby">      score += (movie.rating*8).to_i</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="28">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="8" data-linenumber="28">
+          <span class="hits">8</span>
           
           <code class="ruby">      score -= DateTime.now.year - movie.released_year</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="29">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="8" data-linenumber="29">
+          <span class="hits">8</span>
           
           <code class="ruby">      scored_match[movie] = score</code>
         </li>
@@ -699,8 +699,8 @@
           <code class="ruby">    #created sorted array of movie objects based on their personalized score</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="32">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="12" data-linenumber="32">
+          <span class="hits">12</span>
           
           <code class="ruby">    scored_match = scored_match.sort_by {|k,v| v}.reverse</code>
         </li>
@@ -711,44 +711,44 @@
           <code class="ruby">    #loop through scored_match array and add them to results based on their flight time</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="34">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="34">
+          <span class="hits">4</span>
           
           <code class="ruby">    i = 0</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="35">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="35">
+          <span class="hits">4</span>
           
           <code class="ruby">    p scored_match</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="36">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="36">
+          <span class="hits">4</span>
           
           <code class="ruby">    results = []</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="37">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="37">
+          <span class="hits">4</span>
           
           <code class="ruby">    while i &lt; scored_match.length</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="38">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="8" data-linenumber="38">
+          <span class="hits">8</span>
           
           <code class="ruby">      if flight_time - scored_match[i][0].movie_length &gt; 0 &amp;&amp; scored_match[i][0].rating &gt; 4</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="39">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="39">
+          <span class="hits">4</span>
           
           <code class="ruby">        results &lt;&lt; {movie: scored_match[i][0], genre: scored_match[i][0].genres}</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="40">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="40">
+          <span class="hits">4</span>
           
           <code class="ruby">        flight_time -= scored_match[i][0].movie_length</code>
         </li>
@@ -759,8 +759,8 @@
           <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="42">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="8" data-linenumber="42">
+          <span class="hits">8</span>
           
           <code class="ruby">      i+=1</code>
         </li>
@@ -771,14 +771,14 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="44">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="44">
+          <span class="hits">4</span>
           
           <code class="ruby">    p results</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="45">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="45">
+          <span class="hits">4</span>
           
           <code class="ruby">    render json: {results: results, flight: flight}.to_json</code>
         </li>
